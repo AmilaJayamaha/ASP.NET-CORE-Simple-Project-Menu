@@ -13,8 +13,8 @@ namespace Menu.Data
         {
             modelBuilder.Entity<DishIngredient>().HasKey(pi => new
             {
-                di.DishId,
-                di.IngredientId
+                pi.DishId,
+                pi.IngredientId
             });
             modelBuilder.Entity<DishIngredient>().HasOne(d => d.Dish).WithMany(di => di.DishIngredients).HasForeignKey(d => d.DishId);
             modelBuilder.Entity<DishIngredient>().HasOne(i => i.Ingredient).WithMany(di => di.DishIngredients).HasForeignKey(i => i.IngredientId);
